@@ -1,0 +1,113 @@
+:root{--blush:#F7D6CB;--sun:#FFC21A;--gold:#E89A00;--seed:#2B1A0E;--leaf:#3F5E2A;--display:'Bagel Fat One','Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--blush);color:var(--seed);font:400 clamp(1.05rem,.9rem + .5vw,1.25rem)/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,button{font-family:var(--display);font-weight:400}
+svg{display:block;width:100%}
+:focus-visible{outline:3px solid var(--seed);outline-offset:3px}
+
+.hero{min-height:100vh;min-height:100svh;display:grid;align-content:center;gap:1.5rem;padding:2rem 1.5rem 3rem;overflow:hidden;text-align:center;position:relative;isolation:isolate}
+.bloom{position:relative;order:-1;width:min(68vw,280px);justify-self:center;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:float 6s ease-in-out infinite}
+.p,.ring,.core,.dots circle{transform-origin:100px 100px;transform-box:view-box}
+.bloom .p{animation:pop .8s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(.3s + var(--i)*.03s)}
+.bloom .core{animation:pop .7s cubic-bezier(.3,1.5,.5,1) both}
+.bloom .ring,.end .ring{animation:sway 5s ease-in-out infinite alternate}
+.bloom .ring.f,.end .ring.f{animation-direction:alternate-reverse}
+.bloom .dots circle,.end .dots circle{animation:spin 28s linear infinite}
+.bloom .dots circle:nth-child(even),.end .dots circle:nth-child(even){animation-duration:20s;animation-direction:reverse}
+.bloom.wow>svg{animation:wow .9s cubic-bezier(.3,1.4,.5,1)}
+h1{font-size:clamp(2.9rem,12.5vw,8.5rem);line-height:.92;text-shadow:.04em .04em 0 var(--gold)}
+.hero p{max-width:22ch;font-size:1.3em;margin:1.2rem auto 1.8rem}
+button{background:var(--seed);color:var(--sun);border:0;border-radius:999px;padding:.8em 1.7em;font-size:1.15rem;cursor:pointer;transition:background .2s}
+button:hover{background:var(--leaf)}
+button:focus-visible{outline-color:var(--leaf)}
+@media(min-width:860px){
+  .hero{grid-template-columns:1.05fr 1fr;align-items:center;padding:3rem 5vw;text-align:left}
+  .hero p{margin-left:0}
+  .bloom{order:0;width:min(32vw,400px)}
+  h1{font-size:clamp(3rem,7vw,6.5rem)}
+}
+
+.gallery{background:var(--seed);color:var(--sun);display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:3rem 4.5rem;padding:5rem 1.5rem 6rem}
+figure{width:min(320px,82vw)}
+figure:nth-child(1){transform:rotate(-3deg)}
+figure:nth-child(2){transform:rotate(2.5deg)}
+.arch{aspect-ratio:3/4;border:6px solid var(--sun);border-radius:999px 999px 28px 28px;overflow:hidden;background:var(--blush)}
+.arch img{display:block;width:100%;height:100%;object-fit:cover}
+figcaption{margin-top:1.1rem;text-align:center}
+@media(min-width:700px){figure:nth-child(2){margin-top:4rem}}
+
+.notes{max-width:44rem;margin:0 auto;padding:5.5rem 1.5rem 3rem}
+h2{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;margin-bottom:2rem}
+.c{display:flex;align-items:flex-end;gap:.8rem;margin-bottom:1.1rem}
+.c:nth-of-type(2){margin-left:clamp(1rem,7vw,4rem)}
+.c>div{flex:none;width:2.7rem;height:2.7rem;padding:.3rem;border-radius:50%;background:var(--seed)}
+.c p{background:#FFF9F0;border:2px solid var(--seed);border-radius:1.4rem 1.4rem 1.4rem .3rem;padding:.7rem 1.1rem;max-width:28ch}
+
+.end{text-align:center;padding:3rem 1.5rem 6rem}
+.end>div{width:5.5rem;margin:0 auto 1.2rem}
+.end h2{margin:0}
+.end p{margin-top:1rem;font-size:1.15em}
+
+.w{display:inline-block;white-space:nowrap}
+.w span{display:inline-block}
+h1 .w span{animation:letter .8s cubic-bezier(.3,1.6,.5,1) calc(.2s + var(--n)*.05s) both,wave 3s ease-in-out calc(1.8s + var(--n)*.1s) infinite}
+.hero p{animation:rise .9s 1.3s both}
+.hero button{animation:rise .8s 1.7s both,wiggle 5s 4s ease-in-out infinite}
+.sp{position:absolute;z-index:-1;bottom:-2rem;background:var(--gold);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none;animation:drift linear infinite both}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:spin 16s linear infinite}
+.bee{position:absolute;top:50%;left:108%;width:17%;margin:-6.4% 0 0 -8.5%;animation:counter 16s linear infinite}
+.bee svg{animation:face 16s step-end infinite}
+.wing{transform-box:fill-box;transform-origin:50% 100%;animation:flap .14s ease-in-out infinite alternate}
+.wing.v{animation-direction:alternate-reverse}
+.arch{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+figure{animation:bob 6s ease-in-out infinite}
+figure:nth-child(2){animation-duration:7s;animation-delay:-3s}
+.end>div{animation:float 6s ease-in-out infinite}
+@keyframes letter{from{opacity:0;transform:translateY(-.7em) rotate(-14deg) scale(.5)}}
+@keyframes wave{50%{translate:0 -.1em}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+@keyframes wiggle{0%,12%,100%{transform:none}3%{transform:rotate(-5deg) scale(1.06)}6%{transform:rotate(5deg) scale(1.06)}9%{transform:rotate(-3deg)}}
+@keyframes drift{from{opacity:0;transform:translateY(0) rotate(0)}15%{opacity:.85}to{opacity:0;transform:translateY(-70vh) translateX(30px) rotate(200deg)}}
+@keyframes counter{to{transform:rotate(-360deg)}}
+@keyframes face{0%{transform:scaleX(-1)}50%{transform:scaleX(1)}}
+@keyframes flap{from{transform:rotate(-20deg)}to{transform:rotate(24deg)}}
+@keyframes reveal{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@keyframes bob{50%{translate:0 -10px}}
+@keyframes beat{0%{opacity:0;transform:scale(.3)}25%{opacity:1;transform:scale(1.25)}45%{transform:scale(1)}100%{opacity:0;transform:translateY(-70px) scale(1.1)}}
+@keyframes bub{from{opacity:0;transform:scale(.3) translateY(24px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{from{transform:scale(0) rotate(-35deg)}}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+@keyframes float{50%{transform:translateY(-8px) rotate(3deg)}}
+@keyframes wow{40%{transform:scale(1.12) rotate(18deg)}}
+@keyframes fall{to{transform:translateY(120vh) rotate(540deg)}}
+
+/* ---------- pieces now driven by markup + CSS only ---------- */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.sp{left:var(--x);width:var(--s);height:var(--s);animation-duration:var(--t);animation-delay:var(--d)}
+.end h2 .w span{animation:wave 2.6s ease-in-out calc(var(--n)*.1s) infinite}
+.end>div svg{animation:spin 40s linear infinite}
+
+/* tap-to-like photos: a checkbox toggles, CSS animates */
+.arch{display:block}
+.arch input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:2}
+.arch::after{content:'♡';position:absolute;right:1rem;bottom:.8rem;font:1.9rem/1 system-ui,sans-serif;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5);pointer-events:none}
+.arch:has(input:checked)::after{content:'♥';color:#E8344E;animation:pulse .5s ease-out}
+.arch:has(input:focus-visible){outline:3px solid var(--sun);outline-offset:4px}
+.burst{position:absolute;left:50%;top:50%;margin:-.5em 0 0 -.5em;font:normal 5rem/1 system-ui,sans-serif;color:#E8344E;text-shadow:0 2px 14px rgba(0,0,0,.35);opacity:0;pointer-events:none}
+.arch input:checked~.burst{animation:beat 1s ease-out}
+
+/* "Send some sunshine": JS only adds .sunny, CSS makes it rain */
+.drop{position:fixed;top:-90px;left:var(--x);width:var(--s);z-index:9;pointer-events:none;visibility:hidden}
+.sunny .drop{visibility:visible;animation:fall var(--t) linear var(--d) both}
+@media(max-width:600px){.rain .drop:nth-child(n+11){display:none}}
+
+/* scroll-linked animation (recent Chrome/Safari; other browsers just show the page) */
+@supports (animation-timeline:view()){
+  .arch img{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  .c{transform-origin:0 100%;animation:bub linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  .bloom>svg{animation:away linear both;animation-timeline:scroll(root);animation-range:0px 90vh}
+}
+@keyframes pulse{0%{transform:scale(.4)}60%{transform:scale(1.4)}100%{transform:scale(1)}}
+@keyframes away{to{transform:rotate(100deg) scale(.75);opacity:.35}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}.orbit,.sp,.drop{display:none}}
